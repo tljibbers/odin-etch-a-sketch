@@ -51,7 +51,7 @@ function updateGrid(number)
         for(j = 0; j < number; j++)
         {
             const gridCol2 = document.createElement("div");
-            gridCol2.className = "NewGrid";
+            gridCol2.className = "InitialGrid";
             gridCol2.style.textAlign = 'center';
             gridCol2.style.border = "solid";
             gridCol2.style.width = "300px";
