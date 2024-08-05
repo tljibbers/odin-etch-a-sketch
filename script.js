@@ -17,6 +17,8 @@ mainBody.appendChild(container);
 container.style.display = 'flex'
 container.style.flexWrap = 'wrap'
 
+let isGridActive = false;
+
 
 function createInitialGrid()
 {
@@ -35,9 +37,11 @@ function createInitialGrid()
                 gridCol.style.backgroundColor = 'blue';
             });
             container.appendChild(gridCol);
-            
+
+
         }
     }
+
 }
 
 function updateGrid(number)
@@ -46,28 +50,33 @@ function updateGrid(number)
     {
         for(j = 0; j < number; j++)
         {
-            const gridCol = document.createElement("div");
-            gridCol.className = "NewGrid";
-            gridCol.style.textAlign = 'center';
-            gridCol.style.border = "solid";
-            gridCol.style.width = "300px";
-            gridCol.style.height = "300px";
-            gridCol.addEventListener("mouseover" , function hover()
+            const gridCol2 = document.createElement("div");
+            gridCol2.className = "NewGrid";
+            gridCol2.style.textAlign = 'center';
+            gridCol2.style.border = "solid";
+            gridCol2.style.width = "300px";
+            gridCol2.style.height = "300px";
+            gridCol2.addEventListener("mouseover" , function hover()
             {
-                gridCol.style.backgroundColor = 'blue';
+                gridCol2.style.backgroundColor = 'blue';
+                
             });
-            container.appendChild(gridCol);
+            container.appendChild(gridCol2);
             
         }
     }
 }
 
+function resetGrid()
+{
+    document.querySelectorAll(".InitialGrid").forEach((e) => e.parentNode.removeChild(e));
+}
+
 createInitialGrid()
 
 gridButton.addEventListener("click", function runUpdateGrid(){
+    resetGrid();
     let number = parseInt(prompt("Enter a value to create the grid"));
-    let removeGrid = document.getElementsByClassName("InitialGrid");
-    removeGrid.remove();
     updateGrid(number);
 })
 
